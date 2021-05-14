@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-undef
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "logaligroup/Employees/controller/Base.controller",
     "logaligroup/Employees/model/formatter",
     "sap/m/MessageBox"
-], function (Controller, formatter, MessageBox) {
+], function (Base, formatter, MessageBox) {
 
     function onInit() {
         this._bus = sap.ui.getCore().getEventBus();
@@ -155,17 +155,17 @@ sap.ui.define([
 
     };
 
-    function toOrderDetails(oEvent) {
-        var orderID = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
-        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+//    function toOrderDetails(oEvent) {
+//        var orderID = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
+//        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
-        oRouter.navTo("RouteOrderDetails", {
-            OrderID: orderID
-        });
+//        oRouter.navTo("RouteOrderDetails", {
+//            OrderID: orderID
+//        });
 
-    };
+//    };
 
-    var EmployeeDetails = Controller.extend("logaligroup.Employees.controller.EmployeeDetails", {});
+    var EmployeeDetails = Base.extend("logaligroup.Employees.controller.EmployeeDetails", {});
     EmployeeDetails.prototype.onInit = onInit;
     EmployeeDetails.prototype.onCreateIncidence = onCreateIncidence;
     EmployeeDetails.prototype.onDeleteIncidence = onDeleteIncidence;
@@ -174,7 +174,7 @@ sap.ui.define([
     EmployeeDetails.prototype.updateIncidenceCreationDate = updateIncidenceCreationDate;
     EmployeeDetails.prototype.updateIncidenceReason = updateIncidenceReason;
     EmployeeDetails.prototype.updateIncidenceType = updateIncidenceType;
-    EmployeeDetails.prototype.toOrderDetails = toOrderDetails;
+    //EmployeeDetails.prototype.toOrderDetails = toOrderDetails;
 
     EmployeeDetails.prototype.Formatter = formatter;
 

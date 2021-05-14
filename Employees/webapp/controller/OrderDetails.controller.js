@@ -35,6 +35,12 @@ sap.ui.define([
 
             }
 
+        },
+
+        onClearSignature: function(oEvent){
+            var signature = this.byId("signature");
+            signature.clear();
+
         }
 
 
